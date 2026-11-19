@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Greatest WEP 2026 · Pronos AJC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Yellowtail&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#B8262B; --red-d:#8C1A1F; --cream:#FBF0C6; --cream-2:#F5E2A2;
+  --gold:#EBC24A; --gold-d:#C9971F; --ink:#3B1012; --white:#FFFBEA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+html{background:var(--cream)}
+body{
+  font-family:'Nunito',system-ui,sans-serif;color:var(--ink);
+  background:
+    repeating-conic-gradient(from 0deg at 50% 0%, var(--cream) 0 5deg, var(--cream-2) 5deg 10deg);
+  background-attachment:fixed;min-height:100vh;
+}
+/* ---------- CHAPITEAU ---------- */
+.tent{
+  position:relative;height:120px;overflow:hidden;
+  background:repeating-conic-gradient(from 180deg at 50% -160%, var(--red) 0 2.2deg, var(--cream) 2.2deg 4.4deg);
+}
+.tent::after{content:"";position:absolute;left:-5%;right:-5%;bottom:-70px;height:120px;
+  border-top:10px solid var(--gold);border-radius:50% 50% 0 0/100% 100% 0 0;background:transparent}
+.bunting{display:flex;justify-content:center;gap:0;margin-top:-34px;position:relative;z-index:2;overflow:hidden;
+  border-top:7px solid var(--gold);box-shadow:0 -2px 0 var(--gold-d) inset}
+.bunting span{flex:0 0 46px;height:42px;background:var(--red);border-radius:0 0 12px 12px;margin:0 4px;
+  position:relative;box-shadow:inset 0 -6px 0 var(--red-d)}
+.bunting span::after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:var(--gold);
+  left:50%;top:50%;transform:translate(-50%,-30%)}
+.hero{text-align:center;padding:10px 16px 18px;position:relative}
+.hero svg{width:min(560px,92vw);height:auto;display:block;margin:0 auto -18px}
+.hero h1{font-family:'Alfa Slab One',serif;font-size:clamp(78px,18vw,150px);line-height:.95;color:var(--red);
+  letter-spacing:2px;text-shadow:4px 4px 0 var(--gold),7px 7px 0 var(--red-d)}
+.hero .year{font-family:'Yellowtail',cursive;font-size:clamp(46px,10vw,84px);color:var(--red);line-height:1;
+  margin-top:-6px;text-shadow:2px 2px 0 var(--gold)}
+.hero p.sub{font-weight:800;color:var(--red-d);margin-top:6px;letter-spacing:.5px}
+.stripes-bottom{height:22px;background:repeating-linear-gradient(-60deg,var(--red) 0 22px,var(--cream) 22px 44px);
+  border-top:6px solid var(--gold);border-bottom:6px solid var(--gold)}
+
+/* ---------- LAYOUT ---------- */
+main{max-width:980px;margin:0 auto;padding:22px 16px 80px}
+.card{background:var(--white);border:4px solid var(--red);border-radius:18px;padding:18px;
+  box-shadow:6px 6px 0 var(--gold-d);margin-bottom:18px;position:relative}
+.card h2,.card h3{font-family:'Alfa Slab One',serif;color:var(--red);font-weight:400}
+.card h2{font-size:26px;margin-bottom:10px}
+.card h3{font-size:19px;margin-bottom:8px;line-height:1.2}
+.muted{color:#7a4a3a;font-size:14px}
+.ticket{background:var(--red);color:var(--cream);border-color:var(--red-d)}
+.ticket h2,.ticket h3{color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.grid .card{margin:0}
+
+/* ---------- FORMS ---------- */
+label{font-weight:800;font-size:14px;display:block;margin:10px 0 4px}
+input,select,textarea{width:100%;padding:11px 12px;border:3px solid var(--red);border-radius:12px;
+  font:inherit;font-weight:700;background:#fff;color:var(--ink)}
+input:focus,select:focus{outline:3px solid var(--gold);outline-offset:1px}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1 1 120px}
+button{font-family:'Alfa Slab One',serif;font-size:16px;letter-spacing:.5px;cursor:pointer;
+  background:var(--red);color:var(--cream);border:3px solid var(--red-d);border-radius:14px;
+  padding:11px 16px;box-shadow:3px 3px 0 var(--gold-d);transition:transform .08s}
+button:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--gold-d)}
+button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--gold-d)}
+button.gold{background:var(--gold);color:var(--red-d);border-color:var(--gold-d);box-shadow:3px 3px 0 var(--red-d)}
+button.ghost{background:transparent;color:var(--red);box-shadow:none;border-width:2px;font-size:14px;padding:7px 12px}
+button.small{font-size:13px;padding:6px 10px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.switch{display:flex;background:var(--cream-2);border:3px solid var(--red);border-radius:14px;overflow:hidden;margin-bottom:6px}
+.switch button{flex:1;border:0;border-radius:0;box-shadow:none;background:transparent;color:var(--red)}
+.switch button.on{background:var(--red);color:var(--cream)}
+
+/* ---------- NAV ---------- */
+.userbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--red);color:var(--cream);font-weight:900;border-radius:999px;padding:6px 14px;
+  border:3px solid var(--gold);font-size:14px}
+.chip.g{background:var(--gold);color:var(--red-d);border-color:var(--red)}
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+nav.tabs button{flex:1 1 auto;font-size:14px;padding:10px 10px;background:var(--cream);color:var(--red);box-shadow:3px 3px 0 var(--red-d)}
+nav.tabs button.on{background:var(--red);color:var(--gold)}
+
+/* ---------- ELEMENTS ---------- */
+.badge{display:inline-block;font-family:'Alfa Slab One';font-size:13px;padding:3px 10px;border-radius:999px;
+  background:var(--gold);color:var(--red-d);border:2px solid var(--red-d)}
+.badge.closed{background:#5a2a2a;color:var(--cream);border-color:#5a2a2a}
+.badge.win{background:#2f7a3d;color:#fff;border-color:#1f5129}
+.badge.lose{background:#555;color:#fff;border-color:#333}
+.emoji{font-size:30px;line-height:1}
+.qhead{display:flex;gap:10px;align-items:flex-start;margin-bottom:6px}
+.mybet{background:var(--cream);border:2px dashed var(--red);border-radius:12px;padding:8px 10px;margin-top:10px;font-weight:700;font-size:14px}
+.bar{height:12px;background:var(--cream-2);border-radius:99px;overflow:hidden;border:2px solid var(--red)}
+.bar i{display:block;height:100%;background:var(--red)}
+.tally{display:grid;grid-template-columns:1fr 2fr auto;gap:6px 10px;align-items:center;font-weight:700;font-size:14px;margin-top:8px}
+.vs{display:flex;align-items:center;justify-content:center;gap:12px;margin:8px 0;font-family:'Alfa Slab One';color:var(--red)}
+.vs .f{background:var(--cream);border:3px solid var(--red);border-radius:12px;padding:8px 12px;text-align:center;flex:1}
+.vs b{font-size:28px;color:var(--gold-d);text-shadow:2px 2px 0 var(--red)}
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:10px;margin:10px 0 18px}
+.podium div{text-align:center;flex:1;max-width:200px}
+.podium .step{background:var(--red);color:var(--gold);font-family:'Alfa Slab One';border:3px solid var(--gold);
+  border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:center;font-size:30px}
+.podium .name{font-weight:900;margin-bottom:4px}
+.lb{width:100%;border-collapse:collapse;font-weight:700}
+.lb td,.lb th{padding:9px 8px;border-bottom:2px dashed var(--cream-2);text-align:left}
+.lb th{font-family:'Alfa Slab One';font-weight:400;color:var(--red)}
+.lb tr.me{background:#fff2b3}
+.boost{display:inline-flex;align-items:center;gap:4px;background:var(--red);color:var(--gold);font-family:'Alfa Slab One';
+  border-radius:10px;padding:4px 10px;margin:3px;border:2px solid var(--gold)}
+.boost.used{opacity:.4}
+.list-item{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-bottom:2px dashed var(--cream-2);flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(120px);background:var(--red);color:var(--cream);
+  border:3px solid var(--gold);border-radius:14px;padding:12px 18px;font-weight:800;transition:transform .25s;z-index:99;max-width:90vw}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.hide{display:none!important}
+.section-title{font-family:'Alfa Slab One';color:var(--red);font-size:22px;margin:4px 0 12px;text-shadow:2px 2px 0 var(--gold)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.live{display:inline-flex;align-items:center;gap:6px;font-family:'Alfa Slab One';font-size:13px;color:var(--red);background:var(--cream);border:2px solid var(--red);border-radius:99px;padding:3px 10px}
+.live::before{content:"";width:9px;height:9px;border-radius:50%;background:#e0262c;animation:pulse 1.2s infinite}
+.badge+.badge{margin-left:4px}
+
+/* ---------- MPP ---------- */
+.days{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;margin-bottom:10px;scrollbar-width:none}
+.days button{flex:0 0 auto;font-size:14px;padding:9px 14px;background:var(--cream);color:var(--red);box-shadow:3px 3px 0 var(--red-d);position:relative}
+.days button.on{background:var(--red);color:var(--gold)}
+.days button i{font-style:normal;position:absolute;top:-8px;right:-6px;background:var(--gold);color:var(--red-d);border:2px solid var(--red-d);border-radius:99px;font-size:11px;padding:1px 6px;font-family:Nunito;font-weight:900}
+.days.small button{font-size:12px;padding:6px 10px;box-shadow:2px 2px 0 var(--red-d)}
+.dayhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.dayhead .right{text-align:right;font-weight:800}
+.cd{display:inline-block;background:var(--gold);color:var(--red-d);border-radius:99px;padding:3px 12px;font-family:'Alfa Slab One';font-size:14px}
+.vs .f small{display:block;font-family:Nunito;font-weight:900;color:var(--gold-d)}
+.res{border:3px solid var(--red);border-radius:14px;padding:10px;text-align:center;background:var(--cream);margin-top:8px}
+.res.ok{border-color:#2f7a3d;background:#e9f6e5}.res.ko{opacity:.85}
+.res .big{font-family:'Alfa Slab One';font-size:28px;color:var(--red)}.res.ok .big{color:#2f7a3d}
+.rar{display:inline-block;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;border-radius:6px;padding:2px 7px;vertical-align:middle}
+.rar.fav{background:var(--gold);color:var(--red-d)}.rar.out{background:#e88a2a;color:#fff}.rar.rare{background:var(--red);color:var(--gold)}.rar.ultra{background:#3b1012;color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+.comm{margin-top:10px;background:#fff;border:2px dashed var(--red);border-radius:12px;padding:8px 10px}
+.comm-t{font-weight:900;font-size:13px;margin-bottom:6px}
+.comm-r{display:grid;grid-template-columns:1.4fr 1fr auto auto;gap:8px;align-items:center;font-size:13px;font-weight:700;padding:2px 0}
+.comm-r.w{color:#2f7a3d}.comm-r .pts{color:var(--gold-d);font-weight:900}
+.statsme{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:6px}
+.statsme b{display:block;font-family:'Alfa Slab One';font-size:24px;color:var(--red)}.statsme span{font-size:12px;font-weight:800}
+.badge.prop{background:var(--cream);color:var(--red)}
+.propose{border-style:dashed}
+.rules p{margin-top:8px;font-size:14px}.rules summary{cursor:pointer}
+footer{text-align:center;font-weight:800;color:var(--red-d);padding:20px;font-size:13px}
+@media (max-width:560px){.bunting span{flex-basis:34px;height:34px}.tent{height:90px}}
+</style>
+</head>
+<body>
+
+<div class="tent"></div>
+<div class="bunting" id="bunting"></div>
+<header class="hero">
+  <svg viewBox="0 0 560 120" aria-hidden="true">
+    <path id="arc" d="M40,115 Q280,10 520,115" fill="none"/>
+    <text font-family="Alfa Slab One" font-size="30" fill="#B8262B">
+      <textPath href="#arc" startOffset="50%" text-anchor="middle" textLength="440" lengthAdjust="spacingAndGlyphs">WELCOME TO THE GREATEST</textPath>
+    </text>
+  </svg>
+  <h1>WEP</h1>
+  <div class="year">2026</div>
+  <p class="sub">🎪 Les pronos officiels du week-end de passation · Audencia Junior Conseil</p>
+</header>
+<div class="stripes-bottom"></div>
+
+<main id="app"></main>
+<div class="toast" id="toast"></div>
+<footer>Fait avec 🎪 par le Pôle SI · AJC · Que le meilleur pronostiqueur gagne</footer>
+
+<script>
+/* Logique du jeu WEP 2026 (système type Mon Petit Prono) — partagée navigateur + API Vercel */
+(function (root) {
+  const CONFIG = {
+    // ✏️ Adaptez la liste des pôles de l'AJC ici
+    POLES: ["Système d'information", "RH", "Marketing", "Audit-Qualité", "Dev Co", "Présidente", "VP", "Sec G", "Trésorerie", "Anciens"],
+    // Points de base d'un prono (la cote réelle dépend de la rareté du choix)
+    BASE: { pari: 50, battle: 30 },
+    MAX_PROPOSALS: 5,  // pronos qu'un·e participant·e peut proposer
+    CAP: 5,            // une cote ne dépasse jamais 5 × la base
+    LOCAL_ADMIN_PIN: "AJC2026"
+  };
+
+  const uid = () => Math.random().toString(36).slice(2, 10);
+  const key = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
+
+  function defaultDB() {
+    const days = [
+      { id: "ven", label: "🎪 Vendredi soir", sub: "L'arrivée sous le chapiteau", deadline: null },
+      { id: "sam", label: "☀️ Samedi", sub: "La journée (et la gueule de bois)", deadline: null },
+      { id: "samsoir", label: "🌙 Samedi soir", sub: "Soirée chic & passation", deadline: null },
+      { id: "dim", label: "🥐 Dimanche", sub: "Le réveil difficile", deadline: null }
+    ];
+    const Q = (day, emoji, title, type = "pari") => ({ id: uid(), type, day, emoji, title, base: type === "vote" ? 0 : CONFIG.BASE.pari, open: true, winner: null });
+    return {
+      rev: 0,
+      days,
+      users: {},
+      questions: [
+        // Vendredi soir
+        Q("ven", "💋", "Qui sera le/la premier·e à se chopper ?"),
+        Q("ven", "🥴", "Qui sera le/la premier·e arraché·e ?"),
+        Q("ven", "🤮", "Qui sera le/la premier·e à vomir ?"),
+        Q("ven", "💀", "Qui sera le/la premier·e à finir KO ?"),
+        Q("ven", "🍺", "Qui sera le/la premier·e à enchaîner un cul sec ?"),
+        Q("ven", "💃", "Qui lancera la première choré sur la piste ?"),
+        Q("ven", "🙈", "Qui sera le/la premier·e à tomber par terre ?"),
+        Q("ven", "📱", "Qui sera le/la premier·e à perdre son téléphone ?"),
+        Q("ven", "🗣️", "Qui balancera la première anecdote gênante ?"),
+        Q("ven", "🛌", "Qui sera le/la premier·e à aller se coucher ?"),
+        Q("ven", "🎭", "Soirée déguisement : meilleur costume", "vote"),
+        // Samedi
+        Q("sam", "🐓", "Qui sera le/la premier·e debout le matin ?"),
+        Q("sam", "🧟", "Qui aura la pire gueule de bois ?"),
+        Q("sam", "😴", "Qui sera le/la premier·e à s'endormir dans un endroit improbable ?"),
+        Q("sam", "🏓", "Qui sera le/la champion·ne du beer pong ?"),
+        Q("sam", "🍾", "Qui sera le/la premier·e à rouvrir une bouteille ?"),
+        Q("sam", "🍕", "Qui mangera le plus du week-end ?"),
+        Q("sam", "🤳", "Qui sera le/la premier·e à se faire afficher en story ?"),
+        Q("sam", "📸", "Qui postera le plus de stories ?"),
+        Q("sam", "🚿", "Qui sera le/la dernier·e à se doucher ?"),
+        // Samedi soir
+        Q("samsoir", "🏛️", "Qui sera élu·e au bureau ?"),
+        Q("samsoir", "📣", "Qui fera la meilleure campagne ?"),
+        Q("samsoir", "👑", "Qui sera le meilleur respo ?"),
+        Q("samsoir", "🥲", "Qui sera le/la premier·e à pleurer pendant les discours ?"),
+        Q("samsoir", "🍻", "Qui finira le plus bourré·e ?"),
+        Q("samsoir", "😘", "Qui enchaînera le plus de chopes ?"),
+        Q("samsoir", "🕺", "Qui sera le/la premier·e à danser sur une table ?"),
+        Q("samsoir", "👠", "Qui sera le/la premier·e à finir pieds nus ?"),
+        Q("samsoir", "🍷", "Qui sera le/la premier·e à renverser son verre ?"),
+        Q("samsoir", "📞", "Qui sera le/la premier·e à appeler son ex ?"),
+        Q("samsoir", "🎤", "Qui chantera le plus faux au karaoké ?"),
+        Q("samsoir", "🦉", "Qui sera le/la dernier·e couché·e ?"),
+        Q("samsoir", "🥂", "Soirée chic : le/la mieux habillé·e", "vote"),
+        Q("samsoir", "🎙️", "Meilleur discours de passation", "vote"),
+        // Dimanche
+        Q("dim", "⏰", "Qui sera le/la dernier·e au brunch ?"),
+        Q("dim", "🔇", "Qui aura perdu sa voix ?"),
+        Q("dim", "🤐", "Qui ne se souviendra de rien ?"),
+        Q("dim", "🫥", "Qui sera introuvable au moment du départ ?"),
+        Q("dim", "🚗", "Qui sera le/la premier·e à s'endormir sur le trajet retour ?"),
+        Q("dim", "🤡", "Qui aura été le clown officiel du WEP ?"),
+        Q("dim", "⭐", "MVP du week-end", "vote")
+      ],
+      bets: {},   // bets[userId][questionId] = {target, boost}
+      votes: {},  // votes[userId][questionId] = target
+      challenges: [
+        { id: uid(), mult: 2, title: "Remplir la fiche « outils utilisés » de ton pôle" },
+        { id: uid(), mult: 2, title: "Trouver et signaler un bug sur ce site" },
+        { id: uid(), mult: 3, title: "Déployer ta propre page sur Vercel (équipe AJC)" },
+        { id: uid(), mult: 3, title: "Rédiger une mini-FAQ IT pour les nouveaux" },
+        { id: uid(), mult: 4, title: "Automatiser une tâche répétitive d'un pôle (Make, Zapier, Notion…)" },
+        { id: uid(), mult: 5, title: "Former 3 personnes à un outil du Pôle SI" }
+      ],
+      claims: [],
+      meta: { lastUpdate: null, nextUpdate: "Dimanche au brunch 🥐" }
+    };
+  }
+
+  function normalizeDB(d) {
+    if (!d || typeof d !== "object" || !Array.isArray(d.questions)) return defaultDB();
+    for (const k of ["users", "bets", "votes"]) d[k] = d[k] || {};
+    d.meta = d.meta || {};
+    d.days = Array.isArray(d.days) && d.days.length ? d.days : defaultDB().days;
+    d.challenges = d.challenges || [];
+    d.claims = d.claims || [];
+    d.rev = d.rev || 0;
+    return d;
+  }
+
+  /* ---------- Clôture ---------- */
+  const deadlineOf = (db, q) => q.deadline || (db.days.find(d => d.id === q.day) || {}).deadline || null;
+  const isOpen = (db, q, now = Date.now()) => q.type !== "vote" ? (q.open && !q.winner && !(deadlineOf(db, q) && now >= deadlineOf(db, q))) : (q.open && !q.winner);
+
+  /* ---------- Cotes : plus ton choix est rare, plus il rapporte ---------- */
+  function picks(db, qid, exceptUser) {
+    const counts = {}; let total = 0;
+    for (const [u, b] of Object.entries(db.bets)) {
+      if (u === exceptUser || !b[qid]) continue;
+      counts[b[qid].target] = (counts[b[qid].target] || 0) + 1; total++;
+    }
+    return { counts, total };
+  }
+  const coteRaw = (base, n, T) => Math.min(base * CONFIG.CAP, Math.max(base, Math.round(base / Math.sqrt(n / T) / 5) * 5));
+  // Cote affichée pour un joueur qui choisirait `target` maintenant
+  function coteFor(db, q, target, user) {
+    const { counts, total } = picks(db, q.id, user);
+    return coteRaw(q.base, (counts[target] || 0) + 1, total + 1);
+  }
+  // Cote finale (tous les pronos comptés)
+  function coteFinal(db, q, target) {
+    const { counts, total } = picks(db, q.id);
+    return coteRaw(q.base, Math.max(1, counts[target] || 0), Math.max(1, total));
+  }
+  function rarity(share) {
+    if (share >= 0.30) return { label: "Favori", cls: "fav" };
+    if (share >= 0.15) return { label: "Outsider", cls: "out" };
+    if (share >= 0.05) return { label: "Rare", cls: "rare" };
+    return { label: "Ultra rare", cls: "ultra" };
+  }
+
+  const multOf = (db, user, tok) => ((db.users[user] && db.users[user].boosts) || []).find(b => b.id === tok)?.mult || 1;
+
+  function stats(db, user, dayId) {
+    let score = 0, won = 0, lost = 0, pending = 0, best = 0;
+    for (const [qid, b] of Object.entries(db.bets[user] || {})) {
+      const q = db.questions.find(x => x.id === qid);
+      if (!q || (dayId && q.day !== dayId)) continue;
+      if (!q.winner) { pending++; continue; }
+      if (q.winner === b.target) { const pts = coteFinal(db, q, q.winner) * multOf(db, user, b.boost); score += pts; won++; best = Math.max(best, pts); }
+      else lost++;
+    }
+    return { score, won, lost, pending, best };
+  }
+
+  function ranking(db, opts = {}) {
+    return Object.entries(db.users)
+      .filter(([, u]) => !opts.pole || u.pole === opts.pole)
+      .map(([id, u]) => ({ id, u, ...stats(db, id, opts.day) }))
+      .sort((a, b) => b.score - a.score || b.won - a.won || (a.u.first + a.u.last).localeCompare(b.u.first + b.u.last));
+  }
+
+  function poleRanking(db, day) {
+    const g = {};
+    for (const r of ranking(db, { day })) {
+      const p = r.u.pole || "Sans pôle";
+      g[p] = g[p] || { pole: p, members: 0, total: 0 };
+      g[p].members++; g[p].total += r.score;
+    }
+    return Object.values(g).map(x => ({ ...x, avg: Math.round(x.total / x.members) })).sort((a, b) => b.avg - a.avg || b.total - a.total);
+  }
+
+  function tally(db, qid) {
+    const c = {};
+    for (const v of Object.values(db.votes)) if (v[qid]) c[v[qid]] = (c[v[qid]] || 0) + 1;
+    return Object.entries(c).sort((a, b) => b[1] - a[1]);
+  }
+
+  const ADMIN = new Set(["setWinner", "toggle", "addQ", "delQ", "claimDecision", "addC", "delC", "delUser", "publish", "import", "reset", "checkPin", "setDeadline", "grant", "revoke"]);
+
+  function apply(db, action, isAdmin, now = Date.now()) {
+    const p = action.payload || {};
+    const fail = m => ({ error: m });
+    if (ADMIN.has(action.type) && !isAdmin) return fail("Code admin incorrect");
+    const u = p.user ? db.users[p.user] : null;
+    const q = p.qid ? db.questions.find(x => x.id === p.qid) : null;
+    let result = null;
+
+    switch (action.type) {
+      case "register": {
+        const first = String(p.first || "").trim().slice(0, 40), last = String(p.last || "").trim().slice(0, 40);
+        if (!first || !last) return fail("Prénom et nom obligatoires");
+        if (!CONFIG.POLES.includes(p.pole)) return fail("Choisis ton pôle");
+        const k = key(first + " " + last);
+        if (Object.values(db.users).some(x => key(x.first + " " + x.last) === k)) return fail("Déjà inscrit·e : utilise « Déjà inscrit·e »");
+        result = uid();
+        // Comme dans MPP : un bonus ×2 offert pour tout le week-end
+        db.users[result] = { first, last, pole: p.pole, created: now, boosts: [{ id: uid(), mult: 2, label: "Bonus ×2 de bienvenue", used: null }] };
+        break;
+      }
+      case "setPole":
+        if (!u) return fail("Compte introuvable");
+        if (!CONFIG.POLES.includes(p.pole)) return fail("Pôle inconnu");
+        u.pole = p.pole; break;
+      case "bet": {
+        if (!u) return fail("Compte introuvable");
+        if (!q || q.type === "vote") return fail("Question introuvable");
+        if (!isOpen(db, q, now)) return fail("Trop tard, les pronos sont clôturés pour cette question");
+        const allowed = q.type === "battle" ? q.options : Object.keys(db.users);
+        if (!allowed.includes(p.target)) return fail("Choisis une personne");
+        const toks = u.boosts || (u.boosts = []);
+        const prev = (db.bets[p.user] || {})[q.id];
+        if (p.boost) { const t = toks.find(x => x.id === p.boost); if (!t || (t.used && t.used !== q.id)) return fail("Bonus indisponible"); }
+        if (prev && prev.boost) { const t = toks.find(x => x.id === prev.boost); if (t) t.used = null; }
+        if (p.boost) toks.find(x => x.id === p.boost).used = q.id;
+        (db.bets[p.user] = db.bets[p.user] || {})[q.id] = { target: p.target, boost: p.boost || null, at: now };
+        break;
+      }
+      case "vote":
+        if (!u) return fail("Compte introuvable");
+        if (!q || q.type !== "vote") return fail("Vote introuvable");
+        if (!isOpen(db, q, now)) return fail("Le vote est fermé");
+        if (!db.users[p.target]) return fail("Choisis une personne");
+        (db.votes[p.user] = db.votes[p.user] || {})[q.id] = p.target;
+        break;
+      case "propose": {
+        if (!u) return fail("Compte introuvable");
+        const title = String(p.title || "").trim().slice(0, 140);
+        if (title.length < 8) return fail("Écris ta question en entier");
+        const d = db.days.find(x => x.id === p.day);
+        if (!d) return fail("Choisis une journée");
+        if (d.deadline && now >= d.deadline) return fail("Cette journée est déjà clôturée");
+        if (db.questions.filter(x => x.by === p.user).length >= CONFIG.MAX_PROPOSALS) return fail("Maximum " + CONFIG.MAX_PROPOSALS + " propositions par personne");
+        if (db.questions.some(x => key(x.title) === key(title))) return fail("Ce prono existe déjà");
+        db.questions.push({ id: uid(), type: "pari", day: d.id, emoji: String(p.emoji || "💡").slice(0, 8), title, base: CONFIG.BASE.pari, open: true, winner: null, by: p.user, at: now });
+        result = d.id; break;
+      }
+      case "claim":
+        if (!u) return fail("Compte introuvable");
+        if (!db.challenges.some(c => c.id === p.cid)) return fail("Défi introuvable");
+        if (db.claims.some(c => c.user === p.user && c.challenge === p.cid && c.status !== "ko")) return fail("Défi déjà envoyé");
+        db.claims.push({ id: uid(), user: p.user, challenge: p.cid, status: "pending", at: now });
+        break;
+
+      /* ---------- ADMIN ---------- */
+      case "checkPin": return { ok: true, noWrite: true };
+      case "setWinner":
+        if (!q) return fail("Question introuvable");
+        q.winner = p.winner && db.users[p.winner] ? p.winner : null;
+        if (q.winner) q.open = false;
+        break;
+      case "toggle": if (!q) return fail("Question introuvable"); q.open = !q.open; break;
+      case "setDeadline": {
+        const d = db.days.find(x => x.id === p.day);
+        if (!d) return fail("Journée introuvable");
+        d.deadline = p.deadline ? Number(p.deadline) : null; break;
+      }
+      case "addQ": {
+        const type = ["pari", "vote", "battle"].includes(p.type) ? p.type : "pari";
+        const title = String(p.title || "").trim().slice(0, 140);
+        if (!title) return fail("Intitulé obligatoire");
+        const day = db.days.some(d => d.id === p.day) ? p.day : db.days[0].id;
+        const def = type === "vote" ? 0 : CONFIG.BASE[type];
+        const nq = { id: uid(), type, day, emoji: String(p.emoji || "🎪").slice(0, 8), title, open: true, winner: null,
+          base: type === "vote" ? 0 : Math.max(5, parseInt(p.base, 10) || def) };
+        if (type === "battle") {
+          if (!db.users[p.a] || !db.users[p.b] || p.a === p.b) return fail("Choisis 2 combattant·es différent·es");
+          nq.options = [p.a, p.b];
+        }
+        db.questions.push(nq); break;
+      }
+      case "delQ":
+        if (!q) return fail("Question introuvable");
+        db.questions = db.questions.filter(x => x.id !== q.id);
+        for (const b of Object.values(db.bets)) delete b[q.id];
+        for (const v of Object.values(db.votes)) delete v[q.id];
+        for (const x of Object.values(db.users)) (x.boosts || []).forEach(t => { if (t.used === q.id) t.used = null; });
+        break;
+      case "grant": {
+        const ch = db.challenges.find(x => x.id === p.cid);
+        if (!u) return fail("Choisis une personne");
+        if (!ch) return fail("Choisis un défi");
+        if (db.claims.some(c => c.user === p.user && c.challenge === ch.id && c.status === "ok")) return fail("Défi déjà attribué à cette personne");
+        const tok = { id: uid(), mult: ch.mult, label: ch.title, used: null };
+        (u.boosts = u.boosts || []).push(tok);
+        db.claims.push({ id: uid(), user: p.user, challenge: ch.id, status: "ok", boost: tok.id, at: now });
+        break;
+      }
+      case "revoke": {
+        const c = db.claims.find(x => x.id === p.id);
+        if (!c) return fail("Introuvable");
+        const cu = db.users[c.user];
+        if (cu && c.boost) {
+          const t = (cu.boosts || []).find(x => x.id === c.boost);
+          if (t && t.used && db.bets[c.user] && db.bets[c.user][t.used]) db.bets[c.user][t.used].boost = null;
+          cu.boosts = (cu.boosts || []).filter(x => x.id !== c.boost);
+        }
+        db.claims = db.claims.filter(x => x.id !== c.id);
+        break;
+      }
+      case "claimDecision": {
+        const c = db.claims.find(x => x.id === p.id);
+        if (!c || c.status !== "pending") return fail("Déjà traité");
+        c.status = p.ok ? "ok" : "ko";
+        if (p.ok) {
+          const ch = db.challenges.find(x => x.id === c.challenge), cu = db.users[c.user];
+          if (ch && cu) (cu.boosts = cu.boosts || []).push({ id: uid(), mult: ch.mult, label: ch.title, used: null });
+        }
+        break;
+      }
+      case "addC": {
+        const title = String(p.title || "").trim().slice(0, 140);
+        if (!title) return fail("Intitulé obligatoire");
+        db.challenges.push({ id: uid(), title, mult: Math.min(5, Math.max(2, parseInt(p.mult, 10) || 2)) }); break;
+      }
+      case "delC": db.challenges = db.challenges.filter(x => x.id !== p.id); break;
+      case "delUser":
+        if (!u) return fail("Compte introuvable");
+        delete db.users[p.user]; delete db.bets[p.user]; delete db.votes[p.user];
+        db.claims = db.claims.filter(c => c.user !== p.user);
+        for (const x of db.questions) {
+          if (x.winner === p.user) x.winner = null;
+          if (x.options && x.options.includes(p.user)) x.open = false;
+        }
+        for (const b of Object.values(db.bets)) for (const k of Object.keys(b)) if (b[k].target === p.user) delete b[k];
+        for (const v of Object.values(db.votes)) for (const k of Object.keys(v)) if (v[k] === p.user) delete v[k];
+        break;
+      case "publish":
+        db.meta.lastUpdate = now;
+        db.meta.nextUpdate = String(p.nextUpdate || "").slice(0, 80);
+        break;
+      case "import":
+      case "reset": {
+        const fresh = action.type === "reset" ? defaultDB() : normalizeDB(p.db);
+        const rev = db.rev;
+        for (const k of Object.keys(db)) delete db[k];
+        Object.assign(db, fresh, { rev });
+        break;
+      }
+      default: return fail("Action inconnue");
+    }
+    db.rev = (db.rev || 0) + 1;
+    return { ok: true, result };
+  }
+
+  const api = { CONFIG, uid, key, defaultDB, normalizeDB, deadlineOf, isOpen, picks, coteFor, coteFinal, rarity, multOf, stats, ranking, poleRanking, tally, apply };
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
+  else root.WEPLogic = api;
+})(typeof window !== "undefined" ? window : globalThis);
+
+</script>
+<script>
+const L = window.WEPLogic, CONFIG = L.CONFIG;
+const LS_DB = "wep2026_db_v4", LS_ME = "wep2026_me";
+let MODE = "local", DB = null, busy = false;
+let ME = localStorage.getItem(LS_ME), TAB = "pronos", LOGIN_MODE = "new", DAY = null;
+let RK = { period: "gen", league: "all" };
+let PIN = sessionStorage.getItem("wep_pin") || "";
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const nameOf = id => { const u = DB.users[id]; return u ? u.first + " " + u.last : "?"; };
+const people = () => Object.entries(DB.users).sort((a, b) => (a[1].first + a[1].last).localeCompare(b[1].first + b[1].last));
+function toast(m) { const t = document.getElementById("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2600); }
+const poleOptions = sel => `<option value="">— Ton pôle —</option>` + CONFIG.POLES.map(p => `<option ${p === sel ? "selected" : ""}>${esc(p)}</option>`).join("");
+function personOptions(selected, list) {
+  const src = list ? list.map(id => [id, DB.users[id]]).filter(x => x[1]) : people();
+  return `<option value="">— Choisis quelqu'un —</option>` + src.map(([id, u]) => `<option value="${id}" ${id === selected ? "selected" : ""}>${esc(u.first + " " + u.last)}</option>`).join("");
+}
+function countdown(dl) {
+  if (!dl) return "Clôture : horaire à venir";
+  const ms = dl - Date.now();
+  if (ms <= 0) return "Clôturé";
+  const h = Math.floor(ms / 36e5), m = Math.floor((ms % 36e5) / 6e4);
+  return "Clôture dans " + (h >= 24 ? Math.floor(h / 24) + " j " + (h % 24) + " h" : h ? h + " h " + String(m).padStart(2, "0") : m + " min");
+}
+const fmtDate = ts => new Date(ts).toLocaleString("fr-FR", { weekday: "long", hour: "2-digit", minute: "2-digit" });
+
+/* ---------- Données ---------- */
+const readLocal = () => { try { return L.normalizeDB(JSON.parse(localStorage.getItem(LS_DB))); } catch { return L.defaultDB(); } };
+async function fetchState() {
+  if (MODE === "local") return readLocal();
+  const r = await fetch("api/state", { headers: { Accept: "application/json" } });
+  const j = await r.json(); if (j.error) throw new Error(j.error);
+  return L.normalizeDB(j.db);
+}
+async function act(type, payload = {}) {
+  busy = true;
+  try {
+    if (MODE === "shared") {
+      const r = await fetch("api/action", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ type, payload, pin: PIN }) });
+      const j = await r.json();
+      if (j.db) DB = L.normalizeDB(j.db);
+      render();
+      if (!j.ok) { toast("⚠️ " + j.error); return null; }
+      return j;
+    }
+    const db = readLocal();
+    const res = L.apply(db, { type, payload }, PIN === CONFIG.LOCAL_ADMIN_PIN);
+    if (res.error) { toast("⚠️ " + res.error); return null; }
+    if (!res.noWrite) localStorage.setItem(LS_DB, JSON.stringify(db));
+    DB = db; render(); return res;
+  } catch (e) { toast("⚠️ Connexion impossible, réessaie"); return null; }
+  finally { busy = false; }
+}
+
+/* ---------- Rendu principal ---------- */
+function render() {
+  const app = document.getElementById("app");
+  if (!DB) { app.innerHTML = `<div class="card"><h2>Ouverture du chapiteau…</h2></div>`; return; }
+  if (ME && !DB.users[ME]) { ME = null; localStorage.removeItem(LS_ME); }
+  if (!DAY || !DB.days.some(d => d.id === DAY)) DAY = (DB.days.find(d => DB.questions.some(q => q.day === d.id && q.type !== "vote" && L.isOpen(DB, q))) || DB.days[0]).id;
+  const banner = "";
+  if (!ME) { app.innerHTML = banner + loginView(); return; }
+  const u = DB.users[ME];
+  if (!u.pole) { app.innerHTML = banner + `<div class="card" style="max-width:520px;margin:0 auto"><h2>Dernière étape 🎪</h2><p class="muted">Indique ton pôle pour rejoindre la ligue de ton pôle.</p>
+    <form id="poleForm"><label>Ton pôle</label><select name="pole" required>${poleOptions()}</select><button style="width:100%;margin-top:12px">Valider</button></form></div>`; return; }
+  const rk = L.ranking(DB), pos = rk.findIndex(r => r.id === ME) + 1, s = rk[pos - 1];
+  const tabs = [["pronos", "🎪 Pronos"], ["votes", "🗳️ Votes"], ["classement", "🏆 Classements"], ["defis", "⚡ Bonus"], ["admin", "🔒 Admin"]];
+  app.innerHTML = banner + `
+    <div class="userbar">
+      <div class="chips">
+        <span class="chip">🎟️ ${esc(u.first)} ${esc(u.last)}</span>
+        <span class="chip g">🎪 ${esc(u.pole)}</span>
+        <span class="chip">🎯 ${s.score} pts · ${pos}${pos === 1 ? "er" : "e"}/${rk.length}</span>
+      </div>
+      <button class="ghost" data-a="logout">Se déconnecter</button>
+    </div>
+    <nav class="tabs">${tabs.map(([k, l]) => `<button class="${TAB === k ? "on" : ""}" data-a="tab" data-v="${k}">${l}</button>`).join("")}</nav>
+    <div id="view">${({ pronos: pronosView, votes: votesView, classement: rankView, defis: defisView, admin: adminView })[TAB]()}</div>`;
+}
+
+function loginView() {
+  const n = Object.keys(DB.users).length, isNew = LOGIN_MODE === "new";
+  return `<div class="card" style="max-width:520px;margin:0 auto">
+    <h2>🎟️ Ton ticket d'entrée</h2>
+    <p class="muted" style="margin-bottom:12px">Pronostique qui sera le premier ou la première à… Plus ton choix est rare, plus il rapporte. Tout le monde démarre à 0, avec un bonus ×2 offert. ${n} inscrit·e${n > 1 ? "s" : ""}.</p>
+    <div class="switch">
+      <button class="${isNew ? "on" : ""}" data-a="loginmode" data-v="new">Pas encore inscrit·e</button>
+      <button class="${!isNew ? "on" : ""}" data-a="loginmode" data-v="old">Déjà inscrit·e</button>
+    </div>
+    <form id="loginForm">
+      <div class="row">
+        <div><label>Prénom</label><input name="first" required autocomplete="given-name"></div>
+        <div><label>Nom</label><input name="last" required autocomplete="family-name"></div>
+      </div>
+      ${isNew ? `<label>Pôle</label><select name="pole" required>${poleOptions()}</select>` : ""}
+      <button style="width:100%;margin-top:14px">${isNew ? "Entrer sous le chapiteau 🎪" : "Retrouver mon compte"}</button>
+    </form></div>`;
+}
+
+/* ---------- Carte « match » façon MPP ---------- */
+function rarityBadge(share) { const r = L.rarity(share); return `<span class="rar ${r.cls}">${r.label}</span>`; }
+function communityBlock(q, limit = 5) {
+  const { counts, total } = L.picks(DB, q.id);
+  if (!total) return `<p class="muted" style="margin-top:8px">Personne n'avait fait de prono.</p>`;
+  const rows = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, limit);
+  return `<div class="comm"><div class="comm-t">👥 Les pronos de la communauté (${total})</div>
+    ${rows.map(([id, n]) => `<div class="comm-r ${q.winner === id ? "w" : ""}"><span>${esc(nameOf(id))} ${q.winner === id ? "✅" : ""}</span><div class="bar"><i style="width:${n / total * 100}%"></i></div><span>${Math.round(n / total * 100)} %</span><span class="pts">${L.coteFinal(DB, q, id)} pts</span></div>`).join("")}</div>`;
+}
+function matchCard(q) {
+  const my = (DB.bets[ME] || {})[q.id], open = L.isOpen(DB, q), { total } = L.picks(DB, q.id);
+  const tokens = (DB.users[ME].boosts || []).filter(b => !b.used || b.used === q.id);
+  const fighters = q.type === "battle" ? `<div class="vs">${q.options.map(id => `<div class="f">${esc(nameOf(id))}${open ? `<small>${L.coteFor(DB, q, id, ME)} pts</small>` : ""}</div>`).join("<b>VS</b>")}</div>` : "";
+  let body = "";
+  if (q.winner) {
+    const ok = my && my.target === q.winner, { counts } = L.picks(DB, q.id), share = (counts[q.winner] || 0) / Math.max(1, total);
+    const pts = ok ? L.coteFinal(DB, q, q.winner) * L.multOf(DB, ME, my.boost) : 0;
+    body = `<div class="res ${ok ? "ok" : my ? "ko" : ""}">
+      <div>🏁 <b>${esc(nameOf(q.winner))}</b> ${rarityBadge(share)}</div>
+      <div class="big">${ok ? "+" + pts + " pts" : my ? "0 pt" : "—"}</div>
+      <div class="muted">${my ? (ok ? (my.boost ? "Bonus ×" + L.multOf(DB, ME, my.boost) + " appliqué · " : "") + "bien vu !" : "Tu avais misé sur " + esc(nameOf(my.target))) : "Pas de prono"}</div></div>` + communityBlock(q);
+  } else if (!open) {
+    body = (my ? `<div class="mybet">🔒 Ton prono : <b>${esc(nameOf(my.target))}</b> · ${L.coteFinal(DB, q, my.target) * L.multOf(DB, ME, my.boost)} pts potentiels${my.boost ? ` <span class="boost">×${L.multOf(DB, ME, my.boost)}</span>` : ""}</div>` : `<div class="mybet">🔒 Clôturé sans prono de ta part</div>`) +
+      `<p class="muted" style="margin-top:6px">⏳ En attente du résultat</p>` + communityBlock(q);
+  } else {
+    const cands = q.type === "battle" ? q.options : people().map(x => x[0]);
+    const cur = my ? L.coteFor(DB, q, my.target, ME) : null;
+    body = `${my ? `<div class="mybet">🎟️ Ton prono : <b>${esc(nameOf(my.target))}</b> → <b>${cur * L.multOf(DB, ME, my.boost)} pts</b> si ça passe${my.boost ? ` <span class="boost">×${L.multOf(DB, ME, my.boost)}</span>` : ""}</div>` : ""}
+      <form data-bet="${q.id}">
+        <select name="target" required><option value="">— Ton prono —</option>${cands.map(id => DB.users[id] ? `<option value="${id}" ${my?.target === id ? "selected" : ""}>${esc(nameOf(id))} · ${L.coteFor(DB, q, id, ME)} pts</option>` : "").join("")}</select>
+        ${tokens.length ? `<select name="boost" style="margin-top:8px"><option value="">Sans bonus</option>${tokens.map(t => `<option value="${t.id}" ${my?.boost === t.id ? "selected" : ""}>Bonus ×${t.mult}</option>`).join("")}</select>` : ""}
+        <button style="width:100%;margin-top:10px">${my ? "Modifier" : "Valider mon prono"}</button>
+      </form>
+      <p class="muted" style="margin-top:6px">👥 ${total} prono${total > 1 ? "s" : ""} · révélés à la clôture</p>`;
+  }
+  return `<div class="card match">
+    <div class="qhead"><span class="emoji">${q.emoji || "🎪"}</span><div><h3>${esc(q.title)}</h3>
+      <span class="badge">Cote de base ${q.base}</span>${q.by ? ` <span class="badge prop">💡 proposé par ${esc(DB.users[q.by]?.first || "un·e ancien·ne")}</span>` : ""}</div></div>
+    ${fighters}${body}</div>`;
+}
+
+function pronosView() {
+  const d = DB.days.find(x => x.id === DAY), qs = DB.questions.filter(q => q.day === DAY && q.type !== "vote");
+  const dl = d.deadline, mine = DB.bets[ME] || {}, done = qs.filter(q => mine[q.id]).length;
+  return `
+    <div class="days">${DB.days.map(x => { const n = DB.questions.filter(q => q.day === x.id && q.type !== "vote"); const todo = n.filter(q => L.isOpen(DB, q) && !mine[q.id]).length;
+      return `<button class="${x.id === DAY ? "on" : ""}" data-a="day" data-v="${x.id}">${esc(x.label)}${todo ? `<i>${todo}</i>` : ""}</button>`; }).join("")}</div>
+    <div class="card ticket dayhead">
+      <div><h3>${esc(d.label)}</h3><span>${esc(d.sub || "")}</span></div>
+      <div class="right"><span class="cd" data-dl="${dl || ""}">${countdown(dl)}</span><br><span>${done}/${qs.length} pronos faits</span></div>
+    </div>
+    ${people().length < 2 ? `<div class="card"><b>Il faut au moins 2 inscrit·es</b> pour commencer. Partage le lien !</div>` : ""}
+    ${qs.length ? `<div class="grid">${qs.map(matchCard).join("")}</div>` : `<div class="card">Aucun prono sur cette journée pour l'instant.</div>`}
+    <div class="card propose">
+      <h3>💡 Propose ton prono</h3>
+      <p class="muted">Une idée de « qui sera le premier à… » qui manque ? Ajoute-la, tout le monde pourra pronostiquer dessus (${CONFIG.MAX_PROPOSALS} propositions max par personne).</p>
+      <form id="propForm">
+        <div class="row">
+          <div style="flex:0 0 80px"><label>Emoji</label><input name="emoji" value="💡" maxlength="8"></div>
+          <div><label>Journée</label><select name="day">${DB.days.filter(x => !x.deadline || x.deadline > Date.now()).map(x => `<option value="${x.id}" ${x.id === DAY ? "selected" : ""}>${esc(x.label)}</option>`).join("")}</select></div>
+        </div>
+        <label>Ta question</label><input name="title" required minlength="8" maxlength="140" value="Qui sera le/la premier·e à ">
+        <button class="gold" style="width:100%;margin-top:12px">Ajouter ce prono</button>
+      </form>
+      ${(() => { const mine = DB.questions.filter(x => x.by === ME); return mine.length ? `<p class="muted" style="margin-top:8px">Tes propositions : ${mine.length}/${CONFIG.MAX_PROPOSALS}</p>` : ""; })()}
+    </div>
+    <details class="card rules"><summary><b>📜 Comment on marque des points ?</b></summary>
+      <p>Pour chaque question, désigne la personne qui sera la première à… La <b>cote</b> affichée à côté de chaque nom dépend des choix des autres : plus ton prono est rare, plus il rapporte (jusqu'à ×${CONFIG.CAP} la cote de base). Les cotes définitives sont fixées à la clôture.</p>
+      <p>Bon prono : tu marques la cote. Mauvais prono : 0 pt, sans rien perdre. Les pronos des autres restent secrets jusqu'à la clôture.</p>
+      <p><b>Propose tes idées :</b> en bas de chaque journée, tu peux ajouter tes propres pronos.</p>
+      <p><b>Bonus :</b> tout le monde a un bonus ×2 offert, et chaque défi validé pour le Pôle SI en donne un autre (×2 à ×5). Un bonus multiplie les points d'un seul prono, s'il est bon.</p>
+      <p><b>Niveaux de rareté :</b> Favori (30 % des joueurs ou plus) · Outsider (15 à 30 %) · Rare (5 à 15 %) · Ultra rare (moins de 5 %).</p></details>`;
+}
+function votesView() {
+  return `<div class="section-title">🗳️ Votes du public</div><p class="muted" style="margin:-6px 0 12px">Les votes ne rapportent pas de points : ils élisent les stars du WEP.</p>
+  <div class="grid">${DB.questions.filter(q => q.type === "vote").map(q => {
+    const mine = (DB.votes[ME] || {})[q.id], t = L.tally(DB, q.id), total = t.reduce((a, x) => a + x[1], 0) || 1, open = L.isOpen(DB, q);
+    return `<div class="card">
+      <div class="qhead"><span class="emoji">${q.emoji}</span><div><h3>${esc(q.title)}</h3>
+      ${q.winner ? `<span class="badge win">🏆 ${esc(nameOf(q.winner))}</span>` : open ? `<span class="badge">Vote ouvert</span>` : `<span class="badge closed">Vote fermé</span>`}</div></div>
+      ${open ? `<form data-vote="${q.id}"><select name="target" required>${personOptions(mine)}</select><button style="width:100%;margin-top:10px">${mine ? "Changer mon vote" : "Voter ✨"}</button></form>` : ""}
+      ${mine ? `<div class="mybet">Ton vote : <b>${esc(nameOf(mine))}</b></div>` : ""}
+      ${t.length ? `<div class="tally">${t.slice(0, 3).map(([id, n]) => `<span>${esc(nameOf(id))}</span><div class="bar"><i style="width:${(n / total) * 100}%"></i></div><span>${n}</span>`).join("")}</div>` : `<p class="muted" style="margin-top:8px">Aucun vote pour l'instant.</p>`}
+    </div>`;
+  }).join("")}</div>`;
+}
+
+function rankView() {
+  const u = DB.users[ME], day = RK.period === "gen" ? null : RK.period;
+  const chip = (grp, v, l) => `<button class="${RK[grp] === v ? "on" : ""}" data-a="rk" data-g="${grp}" data-v="${v}">${l}</button>`;
+  const head = `<div class="card ticket" style="text-align:center"><h3>📢 Résultats</h3>Dernière annonce : <b>${DB.meta.lastUpdate ? esc(fmtDate(DB.meta.lastUpdate)) : "pas encore"}</b> · Prochaine : <b>${esc(DB.meta.nextUpdate || "à venir")}</b></div>
+    <div class="days">${chip("league", "all", "🌍 Général")}${chip("league", "pole", "🎪 Ligue " + esc(u.pole))}${chip("league", "poles", "⚔️ Guerre des pôles")}</div>
+    <div class="days small">${chip("period", "gen", "Tout le WEP")}${DB.days.map(d => chip("period", d.id, d.label)).join("")}</div>`;
+  if (RK.league === "poles") {
+    const poles = L.poleRanking(DB, day), max = Math.max(1, ...poles.map(p => p.avg));
+    return head + `<div class="card"><h2 style="text-align:center">⚔️ Guerre des pôles</h2><p style="text-align:center"><span class="live">EN DIRECT</span></p>
+      <p class="muted" style="text-align:center;margin:6px 0 12px">Classée à la moyenne par membre, pour que les petits pôles aient leur chance.</p>
+      <div class="tally" style="grid-template-columns:auto 1fr 2fr auto">${poles.map((p, i) => `<span>${i + 1}.</span><span><b>${esc(p.pole)}</b> <span class="muted">(${p.members})</span></span><div class="bar"><i style="width:${p.avg / max * 100}%"></i></div><span>${p.avg} moy.</span>`).join("") || "<span>—</span>"}</div></div>`;
+  }
+  const rows = L.ranking(DB, { day, pole: RK.league === "pole" ? u.pole : null });
+  const me = rows.find(r => r.id === ME) || L.stats(DB, ME, day);
+  const top = rows.slice(0, 3), order = [top[1], top[0], top[2]], h = [110, 150, 80], medal = ["🥈", "🥇", "🥉"];
+  return head + `
+    <div class="card statsme"><div><b>${me.score}</b><span>points</span></div><div><b>${me.won}/${me.won + me.lost}</b><span>bons pronos</span></div><div><b>${me.best || 0}</b><span>meilleur coup</span></div><div><b>${me.pending}</b><span>en attente</span></div></div>
+    <div class="card">
+      <h2 style="text-align:center">🏆 ${RK.league === "pole" ? "Ligue " + esc(u.pole) : "Classement général"}</h2>
+      <p style="text-align:center"><span class="live">EN DIRECT</span></p>
+      <div class="podium">${order.map((r, i) => r ? `<div><div class="name">${medal[i]} ${esc(r.u.first)}</div><div class="muted">${r.score} pts</div><div class="step" style="height:${h[i]}px">${[2, 1, 3][i]}</div></div>` : `<div></div>`).join("")}</div>
+      <table class="lb"><tr><th>#</th><th>Joueur</th>${RK.league === "pole" ? "" : "<th>Pôle</th>"}<th>Pts</th><th>✅</th></tr>
+      ${rows.map((r, i) => `<tr class="${r.id === ME ? "me" : ""}"><td>${i + 1}</td><td>${esc(r.u.first + " " + r.u.last)}</td>${RK.league === "pole" ? "" : `<td>${esc(r.u.pole || "")}</td>`}<td><b>${r.score}</b></td><td>${r.won}/${r.won + r.lost}</td></tr>`).join("")}</table>
+    </div>`;
+}
+function defisView() {
+  const my = DB.users[ME].boosts || [];
+  return `<div class="card ticket"><h3>⚡ Tes bonus</h3>
+    Un bonus multiplie les points d'un prono, s'il est bon. Tu en as un ×2 offert. Relève des défis pour le Pôle SI : quand l'admin te l'attribue, ton bonus (jusqu'à ×5) apparaît ici.</div>
+    <div class="card"><h3>Mes bonus</h3>
+      ${my.length ? my.map(b => { const q = b.used && DB.questions.find(x => x.id === b.used); return `<span class="boost ${b.used ? "used" : ""}" title="${esc(b.label)}">×${b.mult}${q ? " · " + esc(q.emoji || "") + " utilisé" : ""}</span>`; }).join("") : `<p class="muted">Aucun bonus.</p>`}
+      <p class="muted" style="margin-top:6px">Pour utiliser un bonus, choisis-le sous ton prono.</p>
+    </div>
+    <div class="section-title">🛠️ Défis du Pôle SI</div>
+    <div class="grid">${DB.challenges.map(c => {
+      const cl = DB.claims.find(x => x.user === ME && x.challenge === c.id && x.status === "ok");
+      return `<div class="card"><span class="boost" style="font-size:20px">×${c.mult}</span>
+        <h3 style="margin-top:8px">${esc(c.title)}</h3>
+        ${cl ? `<span class="badge win">Réussi ✅ bonus reçu</span>` : `<span class="muted">À relever : l'admin te l'attribue une fois réussi</span>`}</div>`;
+    }).join("")}</div>`;
+}
+
+function toLocalInput(ts) { if (!ts) return ""; const d = new Date(ts); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 16); }
+function adminView() {
+  if (!PIN) return `<div class="card" style="max-width:420px;margin:0 auto"><h2>🔒 Espace Pôle SI</h2>
+    <form id="pinForm"><label>Code admin</label><input name="pin" type="password" required><button style="width:100%;margin-top:12px">Entrer</button></form></div>`;
+  const granted = DB.claims.filter(c => c.status === "ok").sort((a, b) => b.at - a.at), ppl = people();
+  const dayOpts = sel => DB.days.map(d => `<option value="${d.id}" ${d.id === sel ? "selected" : ""}>${esc(d.label)}</option>`).join("");
+  return `
+  <div class="card ticket"><h3>📢 Annonce des résultats</h3>
+    <div class="row" style="align-items:end">
+      <div><label style="color:var(--gold)">Prochaine mise à jour (texte affiché)</label><input id="nextUpd" value="${esc(DB.meta.nextUpdate || "")}"></div>
+      <div style="flex:0 0 auto"><button class="gold" data-a="publish">Publier</button></div>
+    </div><p style="margin-top:6px;font-size:14px">Les points tombent dès que tu choisis un gagnant ci-dessous. Ce bouton change seulement l'horaire affiché.</p></div>
+
+  <div class="card"><h2>⏰ Clôture des journées</h2><p class="muted">Comme le coup d'envoi d'un match : après cette heure, plus personne ne peut modifier ses pronos de la journée, et les pronos de tout le monde sont révélés.</p>
+    ${DB.days.map(d => `<form class="row dl" data-day="${d.id}" style="align-items:end"><div style="flex:1 1 160px"><label>${esc(d.label)}</label><input type="datetime-local" name="dl" value="${toLocalInput(d.deadline)}"></div><div style="flex:0 0 auto"><button class="small">Enregistrer</button></div></form>`).join("")}
+  </div>
+
+  <div class="card"><h2>🎯 Résultats par question</h2>
+    ${DB.days.map(d => `<h3 style="margin-top:14px">${esc(d.label)}</h3>` + DB.questions.filter(q => q.day === d.id).map(q => {
+      const lead = q.type === "vote" ? L.tally(DB, q.id)[0] : null, n = L.picks(DB, q.id).total;
+      return `<div class="list-item"><div style="flex:2 1 240px"><b>${q.emoji || ""} ${esc(q.title)}</b><br>
+        <span class="muted">${q.by ? "💡 " + esc(nameOf(q.by)) + " · " : ""}${q.type}${q.type !== "vote" ? " · base " + q.base + " · " + n + " pronos" : ""}${lead ? " · en tête : " + esc(nameOf(lead[0])) + " (" + lead[1] + ")" : ""}${L.isOpen(DB, q) ? " · ouvert" : " · fermé"}</span></div>
+        <select data-win="${q.id}" style="flex:1 1 170px">${personOptions(q.winner, q.type === "battle" ? q.options : null)}</select>
+        <button class="small" data-a="toggle" data-v="${q.id}">${q.open ? "Fermer" : "Rouvrir"}</button>
+        <button class="small ghost" data-a="delQ" data-v="${q.id}">Suppr.</button></div>`;
+    }).join("")).join("")}
+    <p class="muted" style="margin-top:8px">Choisir une personne = annoncer le résultat. Le classement bouge tout de suite pour tout le monde. Remettre « — » pour annuler.</p>
+  </div>
+
+  <div class="card"><h2>➕ Nouvelle question</h2>
+    <form id="newQ">
+      <div class="row">
+        <div style="flex:0 0 80px"><label>Emoji</label><input name="emoji" value="🎪"></div>
+        <div><label>Type</label><select name="type"><option value="pari">Prono (qui sera le premier à…)</option><option value="vote">Vote du public</option></select></div>
+      </div>
+      <div class="row"><div><label>Journée</label><select name="day">${dayOpts(DAY)}</select></div>
+        <div style="flex:0 0 120px"><label>Cote de base</label><input name="base" type="number" min="5" step="5" placeholder="auto"></div></div>
+      <label>Intitulé</label><input name="title" required placeholder="Qui sera le/la premier·e à…">
+      <button style="margin-top:12px">Ajouter</button>
+    </form></div>
+
+  <div class="card"><h2>⚡ Attribuer un défi réussi</h2>
+    <form id="grantForm" class="row" style="align-items:end">
+      <div style="flex:1 1 170px"><label>Participant·e</label><select name="user" required>${personOptions()}</select></div>
+      <div style="flex:2 1 220px"><label>Défi réussi</label><select name="cid" required><option value="">— Choisis un défi —</option>${DB.challenges.map(c => `<option value="${c.id}">×${c.mult} · ${esc(c.title)}</option>`).join("")}</select></div>
+      <div style="flex:0 0 auto"><button class="gold">Attribuer</button></div>
+    </form>
+    <h3 style="margin-top:16px">Bonus attribués (${granted.length})</h3>
+    ${granted.length ? granted.map(c => { const ch = DB.challenges.find(x => x.id === c.challenge); return `<div class="list-item"><span><b>${esc(nameOf(c.user))}</b> · ${esc(ch?.title || "défi supprimé")} <span class="boost">×${ch?.mult ?? "?"}</span></span><button class="small ghost" data-a="revoke" data-v="${c.id}">Retirer</button></div>`; }).join("") : `<p class="muted">Aucun pour l'instant.</p>`}
+    <h3 style="margin-top:16px">Liste des défis</h3>
+    ${DB.challenges.map(c => `<div class="list-item"><span><span class="boost">×${c.mult}</span> ${esc(c.title)}</span><button class="small ghost" data-a="delC" data-v="${c.id}">Suppr.</button></div>`).join("")}
+    <form id="newC" class="row" style="align-items:end;margin-top:10px">
+      <div style="flex:3 1 220px"><label>Nouveau défi</label><input name="title" required></div>
+      <div style="flex:0 0 90px"><label>Bonus</label><select name="mult">${[2, 3, 4, 5].map(m => `<option>${m}</option>`).join("")}</select></div>
+      <div style="flex:0 0 auto"><button>Ajouter</button></div>
+    </form></div>
+
+  <div class="card"><h2>🎟️ Inscrit·es (${ppl.length})</h2>
+    ${ppl.map(([id, u]) => `<div class="list-item"><span>${esc(u.first + " " + u.last)} · ${esc(u.pole || "sans pôle")} · ${L.stats(DB, id).score} pts</span><button class="small ghost" data-a="delUser" data-v="${id}">Supprimer</button></div>`).join("") || `<p class="muted">Personne pour l'instant.</p>`}
+  </div>
+
+  <div class="card"><h2>🛠️ Sauvegarde</h2>
+    <p class="muted">Base : <b>${MODE === "shared" ? "partagée (Vercel + Upstash) ✅" : "mode test local ⚠️"}</b></p>
+    <div class="row" style="margin-top:12px">
+      <button class="ghost" data-a="export">Exporter (JSON)</button>
+      <button class="ghost" data-a="import">Importer (JSON)</button>
+      <button class="ghost" data-a="reset">Tout réinitialiser</button>
+      <button class="ghost" data-a="adminout">Quitter l'admin</button>
+    </div></div>`;
+}
+
+/* ---------- Événements ---------- */
+document.addEventListener("click", async e => {
+  const b = e.target.closest("[data-a]"); if (!b) return;
+  const a = b.dataset.a, v = b.dataset.v;
+  if (a === "tab") { TAB = v; render(); }
+  else if (a === "day") { DAY = v; render(); }
+  else if (a === "rk") { RK[b.dataset.g] = v; render(); }
+  else if (a === "loginmode") { LOGIN_MODE = v; render(); }
+  else if (a === "logout") { ME = null; localStorage.removeItem(LS_ME); render(); }
+  else if (a === "publish") { if (await act("publish", { nextUpdate: document.getElementById("nextUpd").value })) toast("Mise à jour publiée 📢"); }
+  else if (a === "toggle") await act("toggle", { qid: v });
+  else if (a === "delQ") { if (confirm("Supprimer cette question et ses pronos ?")) await act("delQ", { qid: v }); }
+  else if (a === "revoke") { if (confirm("Retirer ce bonus ?")) await act("revoke", { id: v }); }
+  else if (a === "claimok" || a === "claimko") await act("claimDecision", { id: v, ok: a === "claimok" });
+  else if (a === "delC") await act("delC", { id: v });
+  else if (a === "delUser") { if (confirm("Supprimer cet·te inscrit·e et tous ses pronos ?")) await act("delUser", { user: v }); }
+  else if (a === "adminout") { PIN = ""; sessionStorage.removeItem("wep_pin"); render(); }
+  else if (a === "export") {
+    const l = document.createElement("a"); l.href = URL.createObjectURL(new Blob([JSON.stringify(DB, null, 2)], { type: "application/json" }));
+    l.download = "wep2026-sauvegarde.json"; l.click();
+  }
+  else if (a === "import") {
+    const i = document.createElement("input"); i.type = "file"; i.accept = ".json,application/json";
+    i.onchange = async () => { try { const d = JSON.parse(await i.files[0].text()); if (await act("import", { db: d })) toast("Import réussi"); } catch { toast("⚠️ Fichier invalide"); } };
+    i.click();
+  }
+  else if (a === "reset") { if (confirm("Effacer TOUS les comptes, pronos et votes ?") && confirm("Vraiment sûr·e ?")) { if (await act("reset")) toast("Chapiteau remis à neuf"); } }
+});
+
+document.addEventListener("change", async e => {
+  const s = e.target.closest("[data-win]"); if (!s) return;
+  if (await act("setWinner", { qid: s.dataset.win, winner: s.value || null })) toast(s.value ? "Résultat annoncé 🏁" : "Résultat annulé");
+});
+
+document.addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = e.target, d = Object.fromEntries(new FormData(f));
+  if (f.id === "loginForm") {
+    if (LOGIN_MODE === "old") {
+      try { DB = await fetchState(); } catch {}
+      const k = L.key(d.first + " " + d.last);
+      const found = Object.entries(DB.users).find(([, u]) => L.key(u.first + " " + u.last) === k);
+      if (!found) return toast("Compte introuvable : vérifie l'orthographe ou inscris-toi");
+      ME = found[0]; localStorage.setItem(LS_ME, ME); render(); toast("Re-bonjour " + found[1].first + " 🎪");
+    } else {
+      if (!d.pole) return toast("Choisis ton pôle");
+      const r = await act("register", { first: d.first, last: d.last, pole: d.pole });
+      if (r) { ME = r.result; localStorage.setItem(LS_ME, ME); render(); toast("Bienvenue sous le chapiteau, " + d.first.trim() + " ! Bonus ×2 offert 🎁"); }
+    }
+  }
+  else if (f.id === "poleForm") await act("setPole", { user: ME, pole: d.pole });
+  else if (f.id === "pinForm") {
+    const old = PIN; PIN = d.pin;
+    if (await act("checkPin")) { sessionStorage.setItem("wep_pin", PIN); render(); } else { PIN = old; render(); }
+  }
+  else if (f.dataset.bet) { if (await act("bet", { user: ME, qid: f.dataset.bet, target: d.target, boost: d.boost || null })) toast("Prono enregistré 🎲"); }
+  else if (f.dataset.vote) { if (await act("vote", { user: ME, qid: f.dataset.vote, target: d.target })) toast("A voté ! ✨"); }
+  else if (f.dataset.day) { const ts = d.dl ? new Date(d.dl).getTime() : null; if (await act("setDeadline", { day: f.dataset.day, deadline: ts })) toast("Clôture enregistrée ⏰"); }
+  else if (f.id === "newQ") { if (await act("addQ", d)) toast("Ajouté ✅"); }
+  else if (f.id === "propForm") { const r = await act("propose", { user: ME, day: d.day, emoji: d.emoji, title: d.title }); if (r) { DAY = r.result; render(); toast("Prono ajouté, merci ! 💡"); } }
+  else if (f.id === "grantForm") { if (await act("grant", { user: d.user, cid: d.cid })) toast("Bonus attribué ⚡"); }
+  else if (f.id === "newC") { if (await act("addC", d)) toast("Défi ajouté ⚡"); }
+});
+
+/* ---------- Démarrage + temps réel ---------- */
+document.getElementById("bunting").innerHTML = "<span></span>".repeat(40);
+(async () => {
+  try {
+    const r = await fetch("api/state", { headers: { Accept: "application/json" } });
+    if (r.ok) { const j = await r.json(); if (j.configured && j.db) { MODE = "shared"; DB = L.normalizeDB(j.db); } }
+  } catch {}
+  if (MODE === "local") DB = readLocal();
+  render();
+  setInterval(async () => {
+    const el = document.activeElement;
+    if (busy || document.hidden || (el && ["INPUT", "SELECT", "TEXTAREA"].includes(el.tagName))) return;
+    try {
+      const fresh = await fetchState();
+      if (MODE === "local" || fresh.rev >= DB.rev) { const changed = JSON.stringify(fresh) !== JSON.stringify(DB); DB = fresh; if (changed) render(); }
+    } catch {}
+  }, 3000);
+  // Comptes à rebours + bascule automatique à la clôture
+  let lastOpen = null;
+  setInterval(() => {
+    document.querySelectorAll("[data-dl]").forEach(el => { el.textContent = countdown(+el.dataset.dl || null); });
+    if (!DB || !ME) return;
+    const sig = DB.questions.map(q => L.isOpen(DB, q) ? 1 : 0).join("");
+    const el = document.activeElement;
+    if (lastOpen !== null && sig !== lastOpen && !(el && ["INPUT", "SELECT"].includes(el.tagName))) render();
+    lastOpen = sig;
+  }, 15000);
+  window.addEventListener("storage", ev => { if (MODE === "local" && ev.key === LS_DB) { DB = readLocal(); render(); } });
+})();
+</script>
+
+
+</body>
+</html>
